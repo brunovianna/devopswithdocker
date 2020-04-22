@@ -1,6 +1,21 @@
 command:
 docker run -it devopsdockeruh/pull_exercise
 
+1.1
+CONTAINER ID        IMAGE                               COMMAND                   CREATED             STATUS                      PORTS               NAMES
+1ccee0350504        ubuntu:latest                       "/bin/bash"               2 minutes ago       Exited (0) 2 minutes ago                        funny_dirac
+4df3166d36ec        node                                "docker-entrypoint.s…"    4 minutes ago       Exited (0) 4 minutes ago                        hungry_montalcini
+f866d7d971bd        nginx                               "nginx -g 'daemon of…"    5 minutes ago       Up 5 minutes                80/tcp              jolly_lederberg
+c0190f002b37        nginx                               "nginx -g 'daemon of…"    6 minutes ago       Exited (0) 5 minutes ago                        sad_kilby
+
+1.2
+bru@toque:~$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+bru@toque:~$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+bru@toque:~$ 
+
+
 1.3
 the secret message is 
 "This is the secret message"
@@ -8,3 +23,21 @@ the secret message is
 1.4
 Secret message is:
 "Docker is easy"
+
+1.5
+I used  
+docker run -it ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+
+Then in another terminal:
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                   CREATED             STATUS              PORTS               NAMES
+660d783b7bb7        ubuntu              "sh -c 'echo \"Input …"   6 seconds ago       Up 3 seconds                            cranky_galois
+
+$docker exec -it 660d783b7bb7 sh
+ 
+#apt update
+#apt install curl
+
+Then I inputted helsinki.fi in the first terminal and it gave me the expected result.
+
+
