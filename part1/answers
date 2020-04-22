@@ -40,4 +40,25 @@ $docker exec -it 660d783b7bb7 sh
 
 Then I inputted helsinki.fi in the first terminal and it gave me the expected result.
 
+1.6
+Dockerfile:
+FROM devopsdockeruh/overwrite_cmd_exercise
+CMD  [" -c"]
+
+Command:
+docker run docker-clock:latest
+
+1.7
+Dockerfile:
+FROM ubuntu:16.04 
+
+WORKDIR /mydir 
+RUN apt-get update && apt-get install -y curl 
+COPY website.sh .
+RUN chmod a+x ./website.sh
+CMD /mydir/website.sh
+
+Command:
+docker run -it curler
+
 
