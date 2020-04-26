@@ -61,4 +61,11 @@ CMD /mydir/website.sh
 Command:
 docker run -it curler
 
+1.8
+First, create the file with
+
+$touch logs.txt
+
+Then run the docker with:
+$docker run -v $(pwd)/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
 
