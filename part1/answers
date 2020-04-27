@@ -69,3 +69,9 @@ $touch logs.txt
 Then run the docker with:
 $docker run -v $(pwd)/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
 
+1.9
+command:
+$docker run -p 8880:80 devopsdockeruh/ports_exercise
+
+then i visited http://localhost:8880 and got the message "Ports configured correctly!!"
+
