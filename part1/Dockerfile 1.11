@@ -1,0 +1,12 @@
+FROM node:lts
+
+WORKDIR /
+
+RUN git clone https://github.com/docker-hy/backend-example-docker
+
+WORKDIR backend-example-docker
+
+RUN npm install
+
+ENTRYPOINT ["npm"]
+CMD ["start"]
