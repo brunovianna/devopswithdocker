@@ -1,0 +1,12 @@
+FROM node:lts
+
+WORKDIR /
+
+RUN git clone https://github.com/brunovianna/frontend-example-docker
+
+WORKDIR frontend-example-docker
+
+RUN npm install
+
+ENTRYPOINT ["npm"]
+CMD ["start"]
