@@ -85,3 +85,8 @@ commands:
 $docker run  -d -p 8000:8000 brunovianna:part1.12_back
 
 $docker run -d -p 5000:5000 brunovianna:part1.12_front
+
+1.14
+commands:
+docker build -t brunovianna/ruby0.1 .
+docker run -p 3000:3000 brunovianna/ruby.0.1
