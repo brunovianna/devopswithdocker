@@ -90,3 +90,7 @@ $docker run -d -p 5000:5000 brunovianna:part1.12_front
 commands:
 docker build -t brunovianna/ruby0.1 .
 docker run -p 3000:3000 brunovianna/ruby.0.1
+
+1.17
+I use this docker to work with the tensorflow environment in python. The nice thing about is that it comes with all that is needed to run IA models in the Nvidia GPU - as long as you use nvidia's version of docker (nvidia-docker).
+Pûblished under brunovianna/tensorflow
