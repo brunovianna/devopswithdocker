@@ -1,0 +1,27 @@
+# i created the folders ./src, ./src/model, ./src/imgs
+version: '3.5'
+
+services:
+
+  training:
+    image: brunovianna/ml-training
+    build: ./ml-kurkkumopo-training
+    volumes:
+      - ./src/model:/src/model
+      - ./src/imgs:/src/imgs
+
+  backend:
+    image: brunovianna/ml-backend
+    build: ./ml-kurkkumopo-backend
+    volumes:
+      - ./src/model:/src/model
+    depends_on:
+      - training
+    ports:
+      - 5000:5000
+
+  frontend:
+    image: brunovianna/ml-frontend
+    build: ./ml-kurkkumopo-frontend
+    ports:
+      - 3000:3000
