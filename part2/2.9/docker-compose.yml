@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+    db:
+      image: postgres
+      restart: unless-stopped
+      environment:
+        POSTGRES_PASSWORD: example
+      container_name: db_backend
+      volumes:
+        - ./database:/var/lib/postgresql/data
+
+    redis:
+      image: redis
+      volumes:
+        - ./data:/data
+
+    backend:
+      image: brunovianna/backend
+      environment:
+        - FRONT_URL=*
+        - REDIS=redis
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=example
+        - DB_HOST=db
+      ports:
+        - 8000:8000
+      depends_on:
+        - redis
+         
+    frontend:
+      image: brunovianna/frontend
+      ports:
+        - 5000:5000
+
+
+
